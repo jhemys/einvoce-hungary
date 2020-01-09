@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  einvoice.hungary.api:
+    image: ${DOCKER_REGISTRY-}einvoicehungaryapi
+    build:
+      context: .
+      dockerfile: src/eInvoice.Hungary.Api/Dockerfile
+  
+  sql.data:
+    image: microsoft/mssql-server-linux:2017-latest

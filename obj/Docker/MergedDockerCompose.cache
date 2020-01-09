@@ -1,0 +1,24 @@
+services:
+  einvoice.hungary.api:
+    build:
+      context: D:\Projects\Microservices\einvoce-hungary
+      dockerfile: src/eInvoice.Hungary.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: einvoicehungaryapi
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\jhemy\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\jhemy\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  sql.data:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Pass@word
+    image: microsoft/mssql-server-linux:2017-latest
+    ports:
+    - published: 5434
+      target: 1433
+version: '3.4'
