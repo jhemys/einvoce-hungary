@@ -129,4 +129,17 @@ D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\net
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Autofac.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Autofac.Extensions.DependencyInjection.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Scrutor.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Annotations.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Filters.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\obj\Debug\netcoreapp3.1\eInvoice.Hungary.Api.MvcApplicationPartsAssemblyInfo.cs
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\obj\Debug\netcoreapp3.1\eInvoice.Hungary.Api.MvcApplicationPartsAssemblyInfo.cache

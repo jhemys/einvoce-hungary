@@ -13,3 +13,7 @@ D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.EntityFrameworkCor
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Bcl.HashCode.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Data.SqlClient.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.OpenApi.dll
