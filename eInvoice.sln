@@ -5,9 +5,15 @@ VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02CD2945-B552-4FCB-9957-7939D758B3D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eInvoice.Hungary.Api", "src\eInvoice.Hungary.Api\eInvoice.Hungary.Api.csproj", "{CBB015E1-B8FE-4159-A46F-967244281393}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eInvoice.Hungary.Api", "src\eInvoice.Hungary.Api\eInvoice.Hungary.Api.csproj", "{CBB015E1-B8FE-4159-A46F-967244281393}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EA95668A-C24F-49CC-AB09-BE9ED15AF686}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{DC00D0F7-E772-418E-A41C-FBAE27EBEB8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebHost", "WebHost", "{5492AE7B-A383-426A-BE4B-4FD7571473B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHost.Customization", "src\BuildingBlocks\WebHost\WebHoseCustomization\WebHost.Customization.csproj", "{D8963BBC-711C-46CD-9B8A-BF0922AF8834}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +29,19 @@ Global
 		{EA95668A-C24F-49CC-AB09-BE9ED15AF686}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA95668A-C24F-49CC-AB09-BE9ED15AF686}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA95668A-C24F-49CC-AB09-BE9ED15AF686}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8963BBC-711C-46CD-9B8A-BF0922AF8834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8963BBC-711C-46CD-9B8A-BF0922AF8834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8963BBC-711C-46CD-9B8A-BF0922AF8834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8963BBC-711C-46CD-9B8A-BF0922AF8834}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CBB015E1-B8FE-4159-A46F-967244281393} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
+		{DC00D0F7-E772-418E-A41C-FBAE27EBEB8D} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
+		{5492AE7B-A383-426A-BE4B-4FD7571473B8} = {DC00D0F7-E772-418E-A41C-FBAE27EBEB8D}
+		{D8963BBC-711C-46CD-9B8A-BF0922AF8834} = {5492AE7B-A383-426A-BE4B-4FD7571473B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B8DD720-FD27-4987-B9F0-2BB4BBEBA103}

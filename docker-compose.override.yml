@@ -18,3 +18,5 @@ services:
       - ACCEPT_EULA=Y
     ports:
       - "5434:1433"
+    volumes:
+      - ${APPDATA}/var/opt/mssql

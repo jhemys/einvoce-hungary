@@ -21,4 +21,6 @@ services:
     ports:
     - published: 5434
       target: 1433
+    volumes:
+    - C:\Users\jhemy\AppData\Roaming/var/opt/mssql
 version: '3.4'

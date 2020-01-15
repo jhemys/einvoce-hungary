@@ -24,7 +24,7 @@ namespace eInvoice.Hungary.Api.Infrastructure
         public InvoiceContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<InvoiceContext>()
-                .UseSqlServer("Server=.;Initial Catalog=Invoice;Integrated Security=true");
+                .UseSqlServer("Data Source=localhost,5434;Initial Catalog=master;Userc Id=sa; Password=Pass@word");
 
             return new InvoiceContext(optionsBuilder.Options);
         }

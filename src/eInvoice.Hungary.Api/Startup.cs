@@ -1,14 +1,19 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using eInvoice.Hungary.Api.Infrastructure;
 using eInvoice.Hungary.Api.Infrastructure.Seed;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Reflection;
 
 namespace eInvoice.Hungary.Api
 {
@@ -25,10 +30,21 @@ namespace eInvoice.Hungary.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Hungary e-Invoice", Version = "v1" });
+            });
+
+            services.AddDbContext<InvoiceContext>(options =>
+            {
+                options.UseSqlServer(Configuration["ConnectionString"],
+                                     sqlServerOptionsAction: sqlOptions =>
+                                     {
+                                         sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                                         //Configuring Connection Resiliency: https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency 
+                                         sqlOptions.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
+                                     });
             });
         }
 
@@ -38,10 +54,8 @@ namespace eInvoice.Hungary.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                //InvoiceContextSeed.SeedAsync(app)
-                //    .Wait();
             }
+
 
             app.UseHttpsRedirection();
 

@@ -17,3 +17,17 @@ D:\Projects\Microservices\einvoce-hungary\bin\Debug\Swashbuckle.AspNetCore.Swagg
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Swashbuckle.AspNetCore.Swagger.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.OpenApi.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Options.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Polly.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\WebHost.Customization.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Configuration.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\System.Data.SqlClient.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\WebHost.Customization.pdb
