@@ -1,5 +1,5 @@
-using eInvoice.Hungary.Api.Infrastructure;
-using eInvoice.Hungary.Api.Infrastructure.Seed;
+using eInvoice.Hungary.Infrastructure;
+using eInvoice.Hungary.Infrastructure.Seed;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

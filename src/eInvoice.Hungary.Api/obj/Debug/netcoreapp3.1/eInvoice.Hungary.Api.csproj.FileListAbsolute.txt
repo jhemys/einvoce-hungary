@@ -161,3 +161,7 @@ D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\net
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\WebHost.Customization.dll
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\WebHost.Customization.pdb
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\eInvoice.Hungary.Domain.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\eInvoice.Hungary.Infrastructure.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\eInvoice.Hungary.Domain.pdb
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\eInvoice.Hungary.Infrastructure.pdb

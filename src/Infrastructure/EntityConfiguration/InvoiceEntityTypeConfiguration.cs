@@ -1,9 +1,8 @@
-﻿using System;
-using eInvoice.Hungary.Api.Model;
+﻿using eInvoice.Hungary.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace eInvoice.Hungary.Api.Infrastructure.EntityConfigurations
+namespace eInvoice.Hungary.Infrastructure.EntityConfigurations
 {
     class InvoiceEntityTypeConfiguration : IEntityTypeConfiguration<Invoice>
     {

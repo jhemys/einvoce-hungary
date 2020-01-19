@@ -2,13 +2,14 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
+using eInvoice.Hungary.Domain.Model;
+using Infrastructure;using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Polly;
 
-namespace eInvoice.Hungary.Api.Infrastructure.Seed
+namespace eInvoice.Hungary.Infrastructure.Seed
 {
     public class InvoiceContextSeed
     {
@@ -20,7 +21,7 @@ namespace eInvoice.Hungary.Api.Infrastructure.Seed
             {
                 if (!context.Invoices.Any())
                 {
-                    context.Invoices.Add(new Model.Invoice
+                    context.Invoices.Add(new Invoice
                     {
                         InvoiceNumber = "Test"
                     });

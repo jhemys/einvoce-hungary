@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   einvoice.hungary.api:
-    container_name: eInvoice.Hungary.Api_1
+    container_name: eInvoice.Hungary.Api
     build:
       labels:
         com.microsoft.created-by: "visual-studio"
@@ -15,7 +15,7 @@ services:
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"eInvoice.Hungary.Api.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_einvoice.hungary.api$ \"eInvoice.Hungary.Api.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true

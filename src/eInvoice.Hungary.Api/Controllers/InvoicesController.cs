@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using eInvoice.Hungary.Api.Infrastructure;
-using eInvoice.Hungary.Api.Model;
+using eInvoice.Hungary.Infrastructure;
+using System.Net;
+using eInvoice.Hungary.Domain.Model;
 
 namespace eInvoice.Hungary.Api.Controllers
 {
@@ -23,6 +22,9 @@ namespace eInvoice.Hungary.Api.Controllers
 
         // GET: api/Invoices
         [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(IEnumerable<Invoice>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Invoice>>> GetInvoices()
         {
             return await _context.Invoices.ToListAsync();
@@ -30,6 +32,9 @@ namespace eInvoice.Hungary.Api.Controllers
 
         // GET: api/Invoices/5
         [HttpGet("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(Invoice), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Invoice>> GetInvoice(int id)
         {
             var invoice = await _context.Invoices.FindAsync(id);

@@ -1,7 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using eInvoice.Hungary.Api.Infrastructure;
-using eInvoice.Hungary.Api.Infrastructure.Seed;
+using eInvoice.Hungary.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

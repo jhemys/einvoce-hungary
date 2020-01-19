@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eInvoice.Hungary.Api.Model
+namespace eInvoice.Hungary.Domain.Model
 {
     public class Invoice
     {

@@ -109,6 +109,12 @@
             "projectReferences": {
               "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj": {
                 "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj"
+              },
+              "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj": {
+                "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj"
+              },
+              "D:\\Projects\\Microservices\\einvoce-hungary\\src\\Infrastructure\\eInvoice.Hungary.Infrastructure.csproj": {
+                "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\Infrastructure\\eInvoice.Hungary.Infrastructure.csproj"
               }
             }
           }
@@ -195,6 +201,147 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj",
+        "projectName": "eInvoice.Hungary.Domain",
+        "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj",
+        "packagesPath": "C:\\Users\\jhemy\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jhemy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\Microservices\\einvoce-hungary\\src\\Infrastructure\\eInvoice.Hungary.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\Infrastructure\\eInvoice.Hungary.Infrastructure.csproj",
+        "projectName": "eInvoice.Hungary.Infrastructure",
+        "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\Infrastructure\\eInvoice.Hungary.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\jhemy\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jhemy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj": {
+                "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj"
+              },
+              "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj": {
+                "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -13,7 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebHost", "WebHost", "{5492AE7B-A383-426A-BE4B-4FD7571473B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHost.Customization", "src\BuildingBlocks\WebHost\WebHoseCustomization\WebHost.Customization.csproj", "{D8963BBC-711C-46CD-9B8A-BF0922AF8834}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebHost.Customization", "src\BuildingBlocks\WebHost\WebHoseCustomization\WebHost.Customization.csproj", "{D8963BBC-711C-46CD-9B8A-BF0922AF8834}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eInvoice.Mediator", "src\eInvoice.Mediator\eInvoice.Mediator.csproj", "{4EB9925B-88AA-4084-B396-23C1080A4909}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eInvoice.Hungary.Infrastructure", "src\Infrastructure\eInvoice.Hungary.Infrastructure.csproj", "{146D728A-981A-4D4A-BECA-D2E684F35851}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eInvoice.Hungary.Domain", "src\eInvoice.Hungary.Domain\eInvoice.Hungary.Domain.csproj", "{42BA3E26-A484-4038-AF4C-E60B372D63CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{D8963BBC-711C-46CD-9B8A-BF0922AF8834}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8963BBC-711C-46CD-9B8A-BF0922AF8834}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8963BBC-711C-46CD-9B8A-BF0922AF8834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB9925B-88AA-4084-B396-23C1080A4909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB9925B-88AA-4084-B396-23C1080A4909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB9925B-88AA-4084-B396-23C1080A4909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB9925B-88AA-4084-B396-23C1080A4909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{146D728A-981A-4D4A-BECA-D2E684F35851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{146D728A-981A-4D4A-BECA-D2E684F35851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{146D728A-981A-4D4A-BECA-D2E684F35851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{146D728A-981A-4D4A-BECA-D2E684F35851}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42BA3E26-A484-4038-AF4C-E60B372D63CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42BA3E26-A484-4038-AF4C-E60B372D63CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42BA3E26-A484-4038-AF4C-E60B372D63CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42BA3E26-A484-4038-AF4C-E60B372D63CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +60,9 @@ Global
 		{DC00D0F7-E772-418E-A41C-FBAE27EBEB8D} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
 		{5492AE7B-A383-426A-BE4B-4FD7571473B8} = {DC00D0F7-E772-418E-A41C-FBAE27EBEB8D}
 		{D8963BBC-711C-46CD-9B8A-BF0922AF8834} = {5492AE7B-A383-426A-BE4B-4FD7571473B8}
+		{4EB9925B-88AA-4084-B396-23C1080A4909} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
+		{146D728A-981A-4D4A-BECA-D2E684F35851} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
+		{42BA3E26-A484-4038-AF4C-E60B372D63CB} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B8DD720-FD27-4987-B9F0-2BB4BBEBA103}
