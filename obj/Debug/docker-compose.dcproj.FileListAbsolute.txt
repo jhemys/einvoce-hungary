@@ -35,3 +35,7 @@ D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Infrastruct
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Domain.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Infrastructure.pdb
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Domain.pdb
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Application.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Dapper.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Application.pdb
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\MediatR.dll

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using eInvoice.Hungary.Infrastructure;
+using eInvoice.Hungary.Infrastructure.WriteModel.Context;
 
-namespace eInvoice.Hungary.Api.Migrations
+namespace eInvoice.Hungary.Infrastructure.Migrations
 {
     [DbContext(typeof(InvoiceContext))]
     [Migration("20200114230927_InitialCreate")]

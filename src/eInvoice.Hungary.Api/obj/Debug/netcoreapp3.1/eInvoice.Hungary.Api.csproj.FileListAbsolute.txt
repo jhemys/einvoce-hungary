@@ -165,3 +165,7 @@ D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\net
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\eInvoice.Hungary.Infrastructure.dll
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\eInvoice.Hungary.Domain.pdb
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\eInvoice.Hungary.Infrastructure.pdb
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Dapper.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\MediatR.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\eInvoice.Hungary.Application.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\eInvoice.Hungary.Application.pdb

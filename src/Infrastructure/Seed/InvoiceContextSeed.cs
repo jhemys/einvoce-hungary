@@ -2,12 +2,12 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using eInvoice.Hungary.Domain.Model;
-using Infrastructure;using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
+using Polly;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Polly;
+using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
+using eInvoice.Hungary.Infrastructure.WriteModel.Context;
 
 namespace eInvoice.Hungary.Infrastructure.Seed
 {
@@ -21,9 +21,13 @@ namespace eInvoice.Hungary.Infrastructure.Seed
             {
                 if (!context.Invoices.Any())
                 {
-                    context.Invoices.Add(new Invoice
+                    context.Invoices.AddRange(new Invoice
                     {
                         InvoiceNumber = "Test"
+                    },
+                    new Invoice
+                    {
+                        InvoiceNumber = "Test 2"
                     });
 
                     await context.SaveChangesAsync();

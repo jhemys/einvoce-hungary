@@ -1,6 +1,6 @@
-﻿using eInvoice.Hungary.Domain.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
 
 namespace eInvoice.Hungary.Infrastructure.EntityConfigurations
 {

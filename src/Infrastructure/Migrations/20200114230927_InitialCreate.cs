@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace eInvoice.Hungary.Api.Migrations
+namespace eInvoice.Hungary.Infrastructure.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -22,8 +22,8 @@ namespace eInvoice.Hungary.Api.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Invoices");
+            //migrationBuilder.DropTable(
+            //    name: "Invoices");
         }
     }
 }

@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using eInvoice.Hungary.Infrastructure;
 using System.Net;
 using eInvoice.Hungary.Domain.Model;
+using eInvoice.Hungary.Infrastructure.WriteModel.Context;
+using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
 
 namespace eInvoice.Hungary.Api.Controllers
 {

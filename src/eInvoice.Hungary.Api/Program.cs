@@ -1,13 +1,13 @@
-using eInvoice.Hungary.Infrastructure;
-using eInvoice.Hungary.Infrastructure.Seed;
+using System.IO;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
-using System.IO;
+using eInvoice.Hungary.Infrastructure;
+using eInvoice.Hungary.Infrastructure.Seed;
+using eInvoice.Hungary.Infrastructure.WriteModel.Context;
 
 namespace eInvoice.Hungary.Api
 {
@@ -30,19 +30,9 @@ namespace eInvoice.Hungary.Api
                     .Wait();
             });
 
-            //CreateHostBuilder(args).Build().Run();
 
             host.Run();
-            //new InvoiceContextSeed.SeedAsync(app)
-            //    .Wait();
         }
-
-        //public static IHostBuilder CreateHostBuilder(string[] args) =>
-        //    Host.CreateDefaultBuilder(args)
-        //        .ConfigureWebHostDefaults(webBuilder =>
-        //        {
-        //            webBuilder.UseStartup<Startup>();
-        //        });
 
         private static IWebHost BuildWebHost(IConfiguration configuration, string[] args) =>
             WebHost.CreateDefaultBuilder(args)
