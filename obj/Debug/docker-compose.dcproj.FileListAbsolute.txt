@@ -39,3 +39,4 @@ D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Application
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Dapper.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Application.pdb
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\MediatR.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\MediatR.Extensions.Microsoft.DependencyInjection.dll

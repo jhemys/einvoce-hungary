@@ -6,9 +6,8 @@ namespace eInvoice.Hungary.Domain.SeedWork
 {
     public abstract class Entity
     {
-        int? _requestedHashCode; 
+        int? _requestedHashCode;
         int _Id;
-        private List<INotification> _domainEvents;
 
         public virtual int Id
         {
@@ -19,10 +18,10 @@ namespace eInvoice.Hungary.Domain.SeedWork
             protected set { _Id = value; }
         }
 
-        public List<INotification> DomainEvents => _domainEvents;
-        public void AddDomainEvent(INotification eventItem) { _domainEvents = _domainEvents ?? new List<INotification>(); _domainEvents.Add(eventItem); }
-        public void RemoveDomainEvent(INotification eventItem) { if (_domainEvents is null) return; _domainEvents.Remove(eventItem); }
-        public bool IsTransient() { return this.Id == default(Int32); }
+        public bool IsTransient()
+        {
+            return Id == default(Int32);
+        }
 
         public override bool Equals(object obj)
         {
@@ -30,14 +29,14 @@ namespace eInvoice.Hungary.Domain.SeedWork
                 return false;
             if (Object.ReferenceEquals(this, obj))
                 return true;
-            if (this.GetType() != obj.GetType())
-                return false;
-            
-            Entity item = (Entity)obj;
-            if (item.IsTransient() || this.IsTransient())
+            if (GetType() != obj.GetType())
                 return false;
 
-            else return item.Id == this.Id;
+            Entity item = (Entity)obj;
+            if (item.IsTransient() || IsTransient())
+                return false;
+
+            else return item.Id == Id;
         }
 
         public override int GetHashCode()

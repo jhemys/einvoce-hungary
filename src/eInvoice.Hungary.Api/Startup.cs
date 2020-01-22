@@ -1,18 +1,12 @@
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
-using eInvoice.Hungary.Infrastructure;
+using System;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Reflection;
+using eInvoice.Hungary.Infrastructure;
+using MediatR;
 
 namespace eInvoice.Hungary.Api
 {
@@ -37,6 +31,10 @@ namespace eInvoice.Hungary.Api
 
             services.AddDbContextInfrastructure(Configuration);
             services.AddInvoiceInfrastructure(Configuration);
+
+            Assembly[] applicationAssembly = { AppDomain.CurrentDomain.Load("eInvoice.Hungary.Application") };
+
+            services.AddMediatR(applicationAssembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

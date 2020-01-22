@@ -8,6 +8,9 @@ using System.Net;
 using eInvoice.Hungary.Domain.Model;
 using eInvoice.Hungary.Infrastructure.WriteModel.Context;
 using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
+using eInvoice.Hungary.Application.Invoices.CommandQuery.GetInvoices;
+using MediatR;
+using eInvoice.Hungary.Application.Invoices.CommandQuery.GetInvoice;
 
 namespace eInvoice.Hungary.Api.Controllers
 {
@@ -15,38 +18,40 @@ namespace eInvoice.Hungary.Api.Controllers
     [ApiController]
     public class InvoicesController : ControllerBase
     {
+        private readonly IMediator _mediator;
         private readonly InvoiceContext _context;
 
-        public InvoicesController(InvoiceContext context)
+        public InvoicesController(InvoiceContext context, IMediator mediator)
         {
             _context = context;
+            _mediator = mediator;
         }
 
         // GET: api/Invoices
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType(typeof(IEnumerable<Invoice>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Invoice>>> GetInvoices()
+        [ProducesResponseType(typeof(InvoicesResult), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<InvoicesResult>> GetInvoices()
         {
-            return await _context.Invoices.ToListAsync();
+            return await _mediator.Send(new GetInvoicesQuery());
         }
 
         // GET: api/Invoices/5
         [HttpGet("{id}")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType(typeof(Invoice), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<Invoice>> GetInvoice(int id)
+        [ProducesResponseType(typeof(InvoiceResult), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<InvoiceResult>> GetInvoice(int id)
         {
-            var invoice = await _context.Invoices.FindAsync(id);
+            var invoiceCommand = new GetInvoiceQuery(id);
 
-            if (invoice == null)
-            {
+            var invoiceResult = await _mediator.Send(invoiceCommand);
+
+            if (invoiceResult == null)
                 return NotFound();
-            }
 
-            return invoice;
+            return invoiceResult;
         }
 
         // PUT: api/Invoices/5
