@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eInvoice.Hungary.Application.Services
+namespace eInvoice.Hungary.Infrastructure.EventBus
 {
-    public class InvoicesServices
+    public interface IEventBus
     {
     }
 }

@@ -3055,7 +3055,6 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.1",
           "Polly": "7.2.0",
           "System.Data.SqlClient": "4.8.0",
-          "WebHost.Customization": "1.0.0",
           "eInvoice.Hungary.Application": "1.0.0",
           "eInvoice.Hungary.Domain": "1.0.0"
         },
@@ -3064,23 +3063,6 @@
         },
         "runtime": {
           "bin/placeholder/eInvoice.Hungary.Infrastructure.dll": {}
-        }
-      },
-      "WebHost.Customization/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
-          "Microsoft.EntityFrameworkCore": "3.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "3.1.1",
-          "Polly": "7.2.0",
-          "System.Data.SqlClient": "4.8.0"
-        },
-        "compile": {
-          "bin/placeholder/WebHost.Customization.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/WebHost.Customization.dll": {}
         }
       }
     }
@@ -9471,11 +9453,6 @@
       "type": "project",
       "path": "../Infrastructure/eInvoice.Hungary.Infrastructure.csproj",
       "msbuildProject": "../Infrastructure/eInvoice.Hungary.Infrastructure.csproj"
-    },
-    "WebHost.Customization/1.0.0": {
-      "type": "project",
-      "path": "../BuildingBlocks/WebHost/WebHoseCustomization/WebHost.Customization.csproj",
-      "msbuildProject": "../BuildingBlocks/WebHost/WebHoseCustomization/WebHost.Customization.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9496,7 +9473,6 @@
       "Swashbuckle.AspNetCore.Swagger >= 5.0.0-rc5",
       "Swashbuckle.AspNetCore.SwaggerGen >= 5.0.0-rc5",
       "Swashbuckle.AspNetCore.SwaggerUi >= 5.0.0-rc5",
-      "WebHost.Customization >= 1.0.0",
       "eInvoice.Hungary.Domain >= 1.0.0",
       "eInvoice.Hungary.Infrastructure >= 1.0.0"
     ]
@@ -9531,9 +9507,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj": {
-              "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj"
-            },
             "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj": {
               "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj"
             },

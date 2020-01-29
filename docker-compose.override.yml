@@ -8,15 +8,30 @@ services:
     ports:
       - "80"
       - "443"
+    links:
+      - sql.data
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    networks:
+      mynetwork:
+        aliases:
+          - api.einvoce.hungary
   
   sql.data:
+    hostname: sql-test
     environment:
       - SA_PASSWORD=Pass@word
       - ACCEPT_EULA=Y
     ports:
       - "5434:1433"
     volumes:
-      - ${APPDATA}/var/opt/mssql
+      - ${APPDATA}/Docker:/root/mssql:ro
+    networks:
+      mynetwork:
+        aliases:
+          - db.einvoce.hungary
+
+networks:
+  mynetwork:
+    driver: bridge

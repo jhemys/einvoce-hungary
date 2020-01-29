@@ -4,83 +4,6 @@
     "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Api\\eInvoice.Hungary.Api.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj",
-        "projectName": "WebHost.Customization",
-        "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj",
-        "packagesPath": "C:\\Users\\jhemy\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\jhemy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.AspNetCore.Hosting.Abstractions": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "Polly": {
-              "target": "Package",
-              "version": "[7.2.0, )"
-            },
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Api\\eInvoice.Hungary.Api.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -107,9 +30,6 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj": {
-                "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj"
-              },
               "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj": {
                 "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Domain\\eInvoice.Hungary.Domain.csproj"
               },
@@ -367,9 +287,6 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj": {
-                "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\BuildingBlocks\\WebHost\\WebHoseCustomization\\WebHost.Customization.csproj"
-              },
               "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Application\\eInvoice.Hungary.Application.csproj": {
                 "projectPath": "D:\\Projects\\Microservices\\einvoce-hungary\\src\\eInvoice.Hungary.Application\\eInvoice.Hungary.Application.csproj"
               },

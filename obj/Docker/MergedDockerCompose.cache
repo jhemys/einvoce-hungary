@@ -1,3 +1,6 @@
+networks:
+  mynetwork:
+    driver: bridge
 services:
   einvoice.hungary.api:
     build:
@@ -7,20 +10,33 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: https://+:443;http://+:80
     image: einvoicehungaryapi
+    links:
+    - sql.data
+    networks:
+      mynetwork:
+        aliases:
+        - api.einvoce.hungary
     ports:
     - target: 80
     - target: 443
     volumes:
     - C:\Users\jhemy\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
     - C:\Users\jhemy\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  rabbitmq:
+    image: rabbitmq:3.7.23-management-alpine
   sql.data:
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: Pass@word
+    hostname: sql-test
     image: microsoft/mssql-server-linux:2017-latest
+    networks:
+      mynetwork:
+        aliases:
+        - db.einvoce.hungary
     ports:
     - published: 5434
       target: 1433
     volumes:
-    - C:\Users\jhemy\AppData\Roaming/var/opt/mssql
+    - C:\Users\jhemy\AppData\Roaming\Docker:/root/mssql:ro
 version: '3.4'

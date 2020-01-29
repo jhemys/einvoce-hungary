@@ -35,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BuildingBlocks\WebHost\WebHoseCustomization\WebHost.Customization.csproj" />
     <ProjectReference Include="..\eInvoice.Hungary.Domain\eInvoice.Hungary.Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\eInvoice.Hungary.Infrastructure.csproj" />
   </ItemGroup>

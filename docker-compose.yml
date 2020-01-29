@@ -7,5 +7,9 @@ services:
       context: .
       dockerfile: src/eInvoice.Hungary.Api/Dockerfile
   
+  rabbitmq:
+    image: rabbitmq:3.7.23-management-alpine
+
   sql.data:
+    hostname: sql-test
     image: microsoft/mssql-server-linux:2017-latest

@@ -22,7 +22,6 @@ D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Options
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Polly.dll
-D:\Projects\Microservices\einvoce-hungary\bin\Debug\WebHost.Customization.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Configuration.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\System.Data.SqlClient.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
@@ -30,7 +29,6 @@ D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Depende
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Logging.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
-D:\Projects\Microservices\einvoce-hungary\bin\Debug\WebHost.Customization.pdb
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Infrastructure.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Domain.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\eInvoice.Hungary.Infrastructure.pdb
