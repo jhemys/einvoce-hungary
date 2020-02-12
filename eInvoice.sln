@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eInvoice.Hungary.Api", "src
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EA95668A-C24F-49CC-AB09-BE9ED15AF686}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eInvoice.Mediator", "src\eInvoice.Mediator\eInvoice.Mediator.csproj", "{4EB9925B-88AA-4084-B396-23C1080A4909}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eInvoice.Hungary.Infrastructure", "src\Infrastructure\eInvoice.Hungary.Infrastructure.csproj", "{146D728A-981A-4D4A-BECA-D2E684F35851}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eInvoice.Hungary.Domain", "src\eInvoice.Hungary.Domain\eInvoice.Hungary.Domain.csproj", "{42BA3E26-A484-4038-AF4C-E60B372D63CB}"
@@ -21,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eInvoice.Hungary.AntiCorruption", "src\eInvoice.Hungary.AntiCorruption\eInvoice.Hungary.AntiCorruption.csproj", "{2FE4CF32-7654-425A-BF3D-037383151A86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +36,6 @@ Global
 		{EA95668A-C24F-49CC-AB09-BE9ED15AF686}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA95668A-C24F-49CC-AB09-BE9ED15AF686}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA95668A-C24F-49CC-AB09-BE9ED15AF686}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4EB9925B-88AA-4084-B396-23C1080A4909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4EB9925B-88AA-4084-B396-23C1080A4909}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4EB9925B-88AA-4084-B396-23C1080A4909}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4EB9925B-88AA-4084-B396-23C1080A4909}.Release|Any CPU.Build.0 = Release|Any CPU
 		{146D728A-981A-4D4A-BECA-D2E684F35851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{146D728A-981A-4D4A-BECA-D2E684F35851}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{146D728A-981A-4D4A-BECA-D2E684F35851}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -52,16 +48,20 @@ Global
 		{6E220C1A-47BA-41AE-B30E-E4434E1818D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E220C1A-47BA-41AE-B30E-E4434E1818D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E220C1A-47BA-41AE-B30E-E4434E1818D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE4CF32-7654-425A-BF3D-037383151A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE4CF32-7654-425A-BF3D-037383151A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE4CF32-7654-425A-BF3D-037383151A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE4CF32-7654-425A-BF3D-037383151A86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CBB015E1-B8FE-4159-A46F-967244281393} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
-		{4EB9925B-88AA-4084-B396-23C1080A4909} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
 		{146D728A-981A-4D4A-BECA-D2E684F35851} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
 		{42BA3E26-A484-4038-AF4C-E60B372D63CB} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
 		{6E220C1A-47BA-41AE-B30E-E4434E1818D3} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
+		{2FE4CF32-7654-425A-BF3D-037383151A86} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B8DD720-FD27-4987-B9F0-2BB4BBEBA103}

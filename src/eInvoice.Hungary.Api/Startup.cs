@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using eInvoice.Hungary.Infrastructure;
 using MediatR;
+using eInvoice.Hungary.Infrastructure.EventBus.Abstractions;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 
 namespace eInvoice.Hungary.Api
 {
@@ -19,8 +22,7 @@ namespace eInvoice.Hungary.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
 
@@ -31,10 +33,17 @@ namespace eInvoice.Hungary.Api
 
             services.AddDbContextInfrastructure(Configuration);
             services.AddInvoiceInfrastructure(Configuration);
+            services.AddIntegrationService(Configuration);
+            services.AddEventBus(Configuration);
 
             Assembly[] applicationAssembly = { AppDomain.CurrentDomain.Load("eInvoice.Hungary.Application") };
 
             services.AddMediatR(applicationAssembly);
+
+            var container = new ContainerBuilder();
+            container.Populate(services);
+
+            return new AutofacServiceProvider(container.Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +70,15 @@ namespace eInvoice.Hungary.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI(v1)");
             });
+
+            ConfigureEventBus(app);
+        }
+
+        protected virtual void ConfigureEventBus(IApplicationBuilder app)
+        {
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+            //eventBus.Subscribe<OrderStatusChangedToAwaitingValidationIntegrationEvent, OrderStatusChangedToAwaitingValidationIntegrationEventHandler>();
+            //eventBus.Subscribe<OrderStatusChangedToPaidIntegrationEvent, OrderStatusChangedToPaidIntegrationEventHandler>();
         }
     }
 }

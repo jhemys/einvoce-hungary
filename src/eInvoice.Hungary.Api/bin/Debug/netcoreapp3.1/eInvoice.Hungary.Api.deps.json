@@ -320,20 +320,20 @@
           "eInvoice.Hungary.Api.dll": {}
         }
       },
-      "Autofac/4.9.1": {
+      "Autofac/5.0.0": {
         "runtime": {
-          "lib/netstandard2.0/Autofac.dll": {
-            "assemblyVersion": "4.9.1.0",
-            "fileVersion": "4.9.1.0"
+          "lib/netstandard2.1/Autofac.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
           }
         },
         "compile": {
-          "lib/netstandard2.0/Autofac.dll": {}
+          "lib/netstandard2.1/Autofac.dll": {}
         }
       },
       "Autofac.Extensions.DependencyInjection/5.0.1": {
         "dependencies": {
-          "Autofac": "4.9.1",
+          "Autofac": "5.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.1"
         },
         "runtime": {
@@ -1357,6 +1357,17 @@
         },
         "compile": {
           "lib/netstandard2.0/Polly.dll": {}
+        }
+      },
+      "RabbitMQ.Client/5.1.2": {
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -2630,11 +2641,13 @@
       },
       "eInvoice.Hungary.Infrastructure/1.0.0": {
         "dependencies": {
+          "Autofac": "5.0.0",
           "Dapper": "2.0.30",
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore": "3.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.1",
           "Polly": "7.2.0",
+          "RabbitMQ.Client": "5.1.2",
           "System.Data.SqlClient": "4.8.0",
           "eInvoice.Hungary.Application": "1.0.0",
           "eInvoice.Hungary.Domain": "1.0.0"
@@ -4274,12 +4287,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Autofac/4.9.1": {
+    "Autofac/5.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-L92DMQxpy4Xw3IypXxL8Z4NHt+qIkB1e0NB2OJ9u105Xp5sVsZSJ04YtYyubmM3KG8aC+WpyBhN14XcjPx5gLg==",
-      "path": "autofac/4.9.1",
-      "hashPath": "autofac.4.9.1.nupkg.sha512"
+      "sha512": "sha512-U1aCHUMXuG7DDJ5JmTXF2kInXpad3Fuow+voSXEVunDHW4OkD8GDWJjleHpJPanpP+3dUQYLAM9R2lftGiQSbA==",
+      "path": "autofac/5.0.0",
+      "hashPath": "autofac.5.0.0.nupkg.sha512"
     },
     "Autofac.Extensions.DependencyInjection/5.0.1": {
       "type": "package",
@@ -4777,6 +4790,13 @@
       "sha512": "sha512-fbtSRyqVSd5AS7O4Pm2Mnw7zKKJk7Z3rOfNnKSTfPkTxM8Z1JJFZzzjqLAOTG6AyUkormSWMO2AhdlygF/384Q==",
       "path": "polly/7.2.0",
       "hashPath": "polly.7.2.0.nupkg.sha512"
+    },
+    "RabbitMQ.Client/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xhj+un0pw4N7h37SZWptxl/NEv7f1RLHwZhXjqzkCm3w3IdbFJh+HjVyPaciD848BUYLGoEQzadx90nShsbs4Q==",
+      "path": "rabbitmq.client/5.1.2",
+      "hashPath": "rabbitmq.client.5.1.2.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

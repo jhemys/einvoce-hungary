@@ -305,6 +305,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.0.30, )"
@@ -324,6 +328,10 @@
             "Polly": {
               "target": "Package",
               "version": "[7.2.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[5.1.2, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
