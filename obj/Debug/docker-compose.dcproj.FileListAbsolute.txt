@@ -41,3 +41,4 @@ D:\Projects\Microservices\einvoce-hungary\bin\Debug\MediatR.Extensions.Microsoft
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\RabbitMQ.Client.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Autofac.dll
 D:\Projects\Microservices\einvoce-hungary\bin\Debug\Autofac.Extensions.DependencyInjection.dll
+D:\Projects\Microservices\einvoce-hungary\bin\Debug\Serilog.dll

@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using eInvoice.Hungary.Infrastructure;
 using System.Net;
-using eInvoice.Hungary.Domain.Model;
 using eInvoice.Hungary.Infrastructure.WriteModel.Context;
 using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
-using eInvoice.Hungary.Application.Invoices.CommandQuery.GetInvoices;
+using eInvoice.Hungary.Application.Invoices.Queries.GetInvoices;
 using MediatR;
-using eInvoice.Hungary.Application.Invoices.CommandQuery.GetInvoice;
+using eInvoice.Hungary.Application.IntegrationEvents;
+using eInvoice.Hungary.Application.IntegrationEvents.Events;
+using eInvoice.Hungary.Application.Invoices.Queries.GetInvoice;
+using eInvoice.Hungary.Application.Invoices.Commands.AddInvoice;
+using eInvoice.Hungary.Api.Models;
+using eInvoice.Hungary.Application.Invoices.Commands;
 
 namespace eInvoice.Hungary.Api.Controllers
 {
@@ -20,11 +22,13 @@ namespace eInvoice.Hungary.Api.Controllers
     {
         private readonly IMediator _mediator;
         private readonly InvoiceContext _context;
+        private readonly IEventBus _eventBus;
 
-        public InvoicesController(InvoiceContext context, IMediator mediator)
+        public InvoicesController(InvoiceContext context, IMediator mediator, IEventBus eventBus)
         {
             _context = context;
             _mediator = mediator;
+            _eventBus = eventBus;
         }
 
         // GET: api/Invoices
@@ -90,12 +94,19 @@ namespace eInvoice.Hungary.Api.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Invoice>> PostInvoice(Invoice invoice)
+        public async Task<ActionResult<CommandResult>> PostInvoice(InvoiceModel invoice)
         {
-            _context.Invoices.Add(invoice);
-            await _context.SaveChangesAsync();
+            var invoiceCommand = new AddInvoiceCommand(invoice.InvoiceNumber);
 
-            return CreatedAtAction("GetInvoice", new { id = invoice.Id }, invoice);
+            var commandResult = await _mediator.Send(invoiceCommand);
+
+            if (!commandResult.IsSuccess)
+                return BadRequest(commandResult.Message);
+
+            var @event = new InvoiceAcceptedEvent(invoice.InvoiceNumber);
+            _eventBus.Publish(@event);
+
+            return Ok(commandResult.Message);
         }
 
         // DELETE: api/Invoices/5

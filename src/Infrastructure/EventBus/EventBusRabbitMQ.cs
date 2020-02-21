@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using eInvoice.Hungary.Application.IntegrationEvents;
 using eInvoice.Hungary.Infrastructure.EventBus.Abstractions;
 using eInvoice.Hungary.Infrastructure.Extensions;
 using Microsoft.Extensions.Logging;

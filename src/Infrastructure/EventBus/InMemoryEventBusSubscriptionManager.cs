@@ -1,4 +1,5 @@
-﻿using eInvoice.Hungary.Infrastructure.EventBus.Abstractions;
+﻿using eInvoice.Hungary.Application.IntegrationEvents;
+using eInvoice.Hungary.Infrastructure.EventBus.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,12 @@ namespace eInvoice.Hungary.Infrastructure.EventBus
     {
         private readonly Dictionary<string, List<SubscriptionInfo>> _handlers;
         private readonly List<Type> _eventTypes;
+
+        public InMemoryEventBusSubscriptionManager()
+        {
+            _handlers = new Dictionary<string, List<SubscriptionInfo>>();
+            _eventTypes = new List<Type>();
+        }
 
         public event EventHandler<string> OnEventRemoved;
 

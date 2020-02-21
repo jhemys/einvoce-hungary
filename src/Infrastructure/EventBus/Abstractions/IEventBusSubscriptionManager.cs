@@ -1,6 +1,6 @@
-﻿using System;
+﻿using eInvoice.Hungary.Application.IntegrationEvents;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace eInvoice.Hungary.Infrastructure.EventBus.Abstractions
 {

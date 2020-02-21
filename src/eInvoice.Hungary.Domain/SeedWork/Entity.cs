@@ -20,7 +20,7 @@ namespace eInvoice.Hungary.Domain.SeedWork
 
         public bool IsTransient()
         {
-            return Id == default(Int32);
+            return Id == default;
         }
 
         public override bool Equals(object obj)

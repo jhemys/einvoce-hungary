@@ -169,3 +169,4 @@ D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\obj\Debug\net
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\obj\Debug\netcoreapp3.1\eInvoice.Hungary.Api.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll
 D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+D:\Projects\Microservices\einvoce-hungary\src\eInvoice.Hungary.Api\bin\Debug\netcoreapp3.1\Serilog.dll

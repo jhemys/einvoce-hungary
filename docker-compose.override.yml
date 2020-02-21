@@ -5,9 +5,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
-      - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
-      - EventBusPassword=${ESHOP_SERVICE_BUS_PASSWORD}   
+      - EventBusConnection=host.docker.internal
+      - EventBusUserName=user
+      - EventBusPassword=123456
     ports:
       - "80"
       - "443"
@@ -34,6 +34,14 @@ services:
       mynetwork:
         aliases:
           - db.einvoce.hungary
+  
+  rabbitmq:
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=123456 
+    ports:
+      - "15672:15672"  # Important: In a production environment your should remove the external port
+      - "5672:5672"    # Important: In a production environment your should remove the external port
 
 networks:
   mynetwork:

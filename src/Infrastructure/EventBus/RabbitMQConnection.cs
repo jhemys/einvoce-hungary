@@ -18,7 +18,7 @@ namespace eInvoice.Hungary.Infrastructure.EventBus
         IConnection _connection;
         bool _disposed;
 
-        object obj;
+        object obj = new object();
 
         public RabbitMQConnection(IConnectionFactory connectionFactory, ILogger<RabbitMQConnection> logger, int retryCount = 5)
         {

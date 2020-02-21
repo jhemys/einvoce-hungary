@@ -21,14 +21,8 @@ namespace eInvoice.Hungary.Infrastructure.Seed
             {
                 if (!context.Invoices.Any())
                 {
-                    context.Invoices.AddRange(new Invoice
-                    {
-                        InvoiceNumber = "Test"
-                    },
-                    new Invoice
-                    {
-                        InvoiceNumber = "Test 2"
-                    });
+
+                    context.Invoices.AddRange(Invoice.Create("Test"), Invoice.Create("Test 2"));
 
                     await context.SaveChangesAsync();
                 }

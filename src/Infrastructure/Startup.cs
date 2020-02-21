@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using eInvoice.Hungary.Application.Invoices;
 using eInvoice.Hungary.Infrastructure.ReadModel.Queries;
 using eInvoice.Hungary.Infrastructure.ReadModel.Sql;
 using eInvoice.Hungary.Domain.AggregatesModel.InvoiceAggregate;
@@ -15,6 +14,8 @@ using eInvoice.Hungary.Infrastructure.EventBus;
 using Autofac;
 using RabbitMQ.Client;
 using Microsoft.Extensions.Logging;
+using eInvoice.Hungary.Application.IntegrationEvents;
+using eInvoice.Hungary.Application.Invoices.Queries;
 
 namespace eInvoice.Hungary.Infrastructure
 {
@@ -79,13 +80,13 @@ namespace eInvoice.Hungary.Infrastructure
 
         public static IServiceCollection AddEventBus(this IServiceCollection services, IConfiguration configuration)
         {
-            var subscriptionClientName = configuration["SubcriptionClientName"];
+            var subscriptionClientName = configuration["SubcriptionClientName"] ?? "eInvoice";
 
             services.AddSingleton<IEventBus, EventBusRabbitMQ>(sp =>
             {
                 var rabbitMQPersistedConnection = sp.GetRequiredService<IRabbitMQConnection>();
                 var iLifetimeScope = sp.GetRequiredService<ILifetimeScope>();
-                var logger = sp.GetRequiredService<Logger<EventBusRabbitMQ>>();
+                var logger = sp.GetRequiredService<ILogger<EventBusRabbitMQ>>();
                 var eventBusSubscriptionManager = sp.GetRequiredService<IEventBusSubscriptionManager>();
                 
                 var retryCount = 5;
@@ -110,8 +111,7 @@ namespace eInvoice.Hungary.Infrastructure
 
         private static void RegisterQueryServices(IServiceCollection services)
         {
-            services
-                .AddScoped<IInvoiceQuery, InvoiceQuery>();
+            services.AddScoped<IInvoiceQuery, InvoiceQuery>();
         }
 
         private static void RegisterRepositoryServices(IServiceCollection services)
@@ -122,12 +122,5 @@ namespace eInvoice.Hungary.Infrastructure
 
         private static IServiceCollection RegisterSqlServices(IServiceCollection services, IConfiguration configuration) =>
             services.AddScoped<ISqlConnectionFactory>(_ => new SqlConnectionFactory(configuration["ConnectionString"]));
-
-
-        public static void ConfigureEventBus(IApplicationBuilder app)
-        {
-            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-            //eventBus.Subscribe<OrderStatusChangedToPaidIntegrationEvent, OrderStatusChangedToPaidIntegrationEventHandler>();
-        }
     }
 }

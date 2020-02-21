@@ -50,8 +50,6 @@ namespace eInvoice.Hungary.Api
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables();
 
-            var config = builder.Build();
-
             return builder.Build();
         }
     }

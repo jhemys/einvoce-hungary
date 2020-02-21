@@ -7,9 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using eInvoice.Hungary.Infrastructure;
 using MediatR;
-using eInvoice.Hungary.Infrastructure.EventBus.Abstractions;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using eInvoice.Hungary.Application.IntegrationEvents;
+using eInvoice.Hungary.Application.IntegrationEvents.Events;
+using eInvoice.Hungary.Application.IntegrationEvents.EventHandling;
 
 namespace eInvoice.Hungary.Api
 {
@@ -35,6 +37,8 @@ namespace eInvoice.Hungary.Api
             services.AddInvoiceInfrastructure(Configuration);
             services.AddIntegrationService(Configuration);
             services.AddEventBus(Configuration);
+
+            services.AddTransient<InvoiceAcceptedEventHandler>();
 
             Assembly[] applicationAssembly = { AppDomain.CurrentDomain.Load("eInvoice.Hungary.Application") };
 
@@ -77,8 +81,7 @@ namespace eInvoice.Hungary.Api
         protected virtual void ConfigureEventBus(IApplicationBuilder app)
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-            //eventBus.Subscribe<OrderStatusChangedToAwaitingValidationIntegrationEvent, OrderStatusChangedToAwaitingValidationIntegrationEventHandler>();
-            //eventBus.Subscribe<OrderStatusChangedToPaidIntegrationEvent, OrderStatusChangedToPaidIntegrationEventHandler>();
+            eventBus.Subscribe<InvoiceAcceptedEvent, InvoiceAcceptedEventHandler>();
         }
     }
 }
