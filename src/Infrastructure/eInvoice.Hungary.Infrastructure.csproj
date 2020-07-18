@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200718144214_eInvoice.cs" />
+    <Compile Remove="Migrations\20200718144214_eInvoice.Designer.cs" />
+    <Compile Remove="Migrations\20200718163453_Invoice_Default_Guid_Value.cs" />
+    <Compile Remove="Migrations\20200718163453_Invoice_Default_Guid_Value.Designer.cs" />
+    <Compile Remove="Migrations\20200718163652_Invoice_Removing_Guid.cs" />
+    <Compile Remove="Migrations\20200718163652_Invoice_Removing_Guid.Designer.cs" />
+    <Compile Remove="Migrations\20200718163804_Removing_Guid.cs" />
+    <Compile Remove="Migrations\20200718163804_Removing_Guid.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="5.0.0" />
     <PackageReference Include="Dapper" Version="2.0.30" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
@@ -14,6 +25,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Polly" Version="7.2.0" />
     <PackageReference Include="RabbitMQ.Client" Version="5.1.2" />
+    <PackageReference Include="ServiceStack.Core" Version="5.9.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
   </ItemGroup>
 

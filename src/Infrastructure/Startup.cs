@@ -16,9 +16,9 @@ using RabbitMQ.Client;
 using Microsoft.Extensions.Logging;
 using eInvoice.Hungary.Application.IntegrationEvents;
 using eInvoice.Hungary.Application.Invoices.Queries;
-using eInvoice.Hungary.Infrastructure.NoSQL;
-using Microsoft.Extensions.Options;
 using eInvoice.Hungary.Infrastructure.NoSQL.Abstractions;
+using eInvoice.Hungary.Domain.SeedWork;
+using eInvoice.Hungary.Infrastructure.NoSQL.Context;
 
 namespace eInvoice.Hungary.Infrastructure
 {
@@ -36,7 +36,7 @@ namespace eInvoice.Hungary.Infrastructure
         }
 
         public static IServiceCollection AddDbContextInfrastructure(this IServiceCollection services, IConfiguration configuration)
-            => services.AddDbContext<InvoiceContext>(options =>
+            => services.AddDbContext<SqlContext>(options =>
             {
                 options.UseSqlServer(configuration["ConnectionString"],
                                      sqlServerOptionsAction: sqlOptions =>
@@ -47,12 +47,13 @@ namespace eInvoice.Hungary.Infrastructure
             });
 
         public static IServiceCollection AddMongoDbConnection(this IServiceCollection services, IConfiguration configuration)
-            => services.AddSingleton<INoSqlConnectionSettings>(options =>
-            {
-                var logger = options.GetRequiredService<ILogger<MongoDbConnectionSettings>>();
+        {
+            services.AddScoped<IMongoContext, MongoContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWorkNoSql>();
+            services.AddScoped<IInvoiceDataRepository, InvoiceDataRepository>();
 
-                return new MongoDbConnectionSettings(configuration["MongoConnection"], configuration["MongoDatabaseName"], logger);
-            });
+            return services;
+        }
 
         public static IServiceCollection AddIntegrationService(this IServiceCollection services, IConfiguration configuration)
         {
@@ -128,7 +129,7 @@ namespace eInvoice.Hungary.Infrastructure
         private static void RegisterRepositoryServices(IServiceCollection services)
         {
             services
-                .AddScoped<IInvoiceRepository, InvoiceRepository>();
+                .AddTransient<IInvoiceRepository, InvoiceRepository>();
         }
 
         private static IServiceCollection RegisterSqlServices(IServiceCollection services, IConfiguration configuration) =>

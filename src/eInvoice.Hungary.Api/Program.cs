@@ -19,7 +19,7 @@ namespace eInvoice.Hungary.Api
 
             var host = BuildWebHost(configuration, args);
 
-            host.MigrateDbContext<InvoiceContext>((context, services) =>
+            host.MigrateDbContext<SqlContext>((context, services) =>
             {
                 var env = services.GetService<IHostingEnvironment>();
                 var settings = services.GetService<IOptions<InvoiceSettings>>();
@@ -29,7 +29,6 @@ namespace eInvoice.Hungary.Api
                     .SeedAsync(context, env, settings, logger)
                     .Wait();
             });
-
 
             host.Run();
         }

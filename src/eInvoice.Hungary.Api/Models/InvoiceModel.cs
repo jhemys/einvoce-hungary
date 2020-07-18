@@ -1,7 +1,10 @@
-﻿namespace eInvoice.Hungary.Api.Models
+﻿using System;
+
+namespace eInvoice.Hungary.Api.Models
 {
     public class InvoiceModel
     {
         public string InvoiceNumber { get; set; }
+        public DateTime InvoiceDate { get; set; }
     }
 }

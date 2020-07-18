@@ -1,4 +1,5 @@
-﻿using eInvoice.Hungary.Domain.SeedWork;
+﻿using System;
+using eInvoice.Hungary.Domain.SeedWork;
 
 namespace eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate
 {

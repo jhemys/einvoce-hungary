@@ -12,7 +12,9 @@ namespace eInvoice.Hungary.Domain.SeedWork
         public Entity() { }
 
         protected Entity(int id)
-            => Id = id;
+        {
+            Id = id;
+        }
 
         public virtual int Id
         {

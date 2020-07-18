@@ -22,10 +22,10 @@ namespace eInvoice.Hungary.Api.Controllers
     public class InvoicesController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly InvoiceContext _context;
+        private readonly SqlContext _context;
         private readonly IEventBus _eventBus;
 
-        public InvoicesController(InvoiceContext context, IMediator mediator, IEventBus eventBus)
+        public InvoicesController(SqlContext context, IMediator mediator, IEventBus eventBus)
         {
             _context = context;
             _mediator = mediator;
@@ -97,7 +97,7 @@ namespace eInvoice.Hungary.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<CommandResult>> PostInvoice(InvoiceModel invoice)
         {
-            var invoiceCommand = new AddInvoiceCommand(invoice.InvoiceNumber);
+            var invoiceCommand = new AddInvoiceCommand(invoice.InvoiceNumber, invoice.InvoiceDate);
 
             var commandResult = await _mediator.Send(invoiceCommand);
 

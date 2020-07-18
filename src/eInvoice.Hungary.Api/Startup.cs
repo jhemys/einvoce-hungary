@@ -34,6 +34,7 @@ namespace eInvoice.Hungary.Api
             });
 
             services.AddDbContextInfrastructure(Configuration);
+            services.AddMongoDbConnection(Configuration);
             services.AddInvoiceInfrastructure(Configuration);
             services.AddIntegrationService(Configuration);
             services.AddEventBus(Configuration);

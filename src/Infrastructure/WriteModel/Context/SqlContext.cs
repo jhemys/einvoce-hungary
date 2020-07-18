@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace eInvoice.Hungary.Infrastructure.WriteModel.Context
 {
-    public class InvoiceContext : DbContext, IUnitOfWork
+    public class SqlContext : DbContext, IUnitOfWork
     {
-        public InvoiceContext(DbContextOptions<InvoiceContext> options)
+        public SqlContext(DbContextOptions<SqlContext> options)
             : base(options) { }
 
         public DbSet<Invoice> Invoices { get; set; }

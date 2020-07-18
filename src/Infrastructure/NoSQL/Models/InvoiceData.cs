@@ -6,5 +6,7 @@ namespace eInvoice.Hungary.Infrastructure.NoSQL.Models
 {
     public class InvoiceData
     {
+
+        public DateTime InvoiceDate { get; set; }
     }
 }

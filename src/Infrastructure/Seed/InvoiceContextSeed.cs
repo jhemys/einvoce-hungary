@@ -13,7 +13,7 @@ namespace eInvoice.Hungary.Infrastructure.Seed
 {
     public class InvoiceContextSeed
     {
-        public async Task SeedAsync(InvoiceContext context, IHostingEnvironment env, IOptions<InvoiceSettings> settings, ILogger<InvoiceContextSeed> logger)
+        public async Task SeedAsync(SqlContext context, IHostingEnvironment env, IOptions<InvoiceSettings> settings, ILogger<InvoiceContextSeed> logger)
         {
             var policy = CreatePolicy(logger, nameof(InvoiceContextSeed));
 

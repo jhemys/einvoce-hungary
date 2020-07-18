@@ -10,10 +10,10 @@ namespace eInvoice.Hungary.Infrastructure.WriteModel.Repositories
 {
     public class InvoiceRepository : IInvoiceRepository
     {
-        private readonly InvoiceContext _invoiceContext;
+        private readonly SqlContext _invoiceContext;
         public IUnitOfWork UnitOfWork => _invoiceContext;
 
-        public InvoiceRepository(InvoiceContext invoiceContext)
+        public InvoiceRepository(SqlContext invoiceContext)
             => _invoiceContext = invoiceContext ?? throw new ArgumentNullException($"'{nameof(invoiceContext)}'");
 
         public async Task AddAsync(Invoice invoice)

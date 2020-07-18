@@ -8,8 +8,6 @@ services:
       - EventBusConnection=host.docker.internal
       - EventBusUserName=user
       - EventBusPassword=123456
-      - MongoDatabaseName=eInvoice
-      - MongoConnection=mongodb://tcp:host.docker.internal:27017
     ports:
       - "80"
       - "443"
