@@ -3,25 +3,15 @@ using eInvoice.Hungary.Domain.SeedWork;
 
 namespace eInvoice.Hungary.Domain.AggregatesModel.InvoiceAggregate
 {
-    public class InvoiceData : Entity, IAggregateRoot
+    public class InvoiceData : Entity<Guid>, IAggregateRoot
     {
         public Guid Guid { get; set; }
         public DateTime InvoiceDate { get; set; }
 
-        private InvoiceData(int id)
+        private InvoiceData(Guid id)
             : base(id) { }
 
-        private InvoiceData(Guid guid)
-        {
-            Guid = guid;
-        }
-
-        public InvoiceData()
-        {
-            Guid = Guid.NewGuid();
-        }
-
-        private InvoiceData(DateTime invoiceDate) : base()
+        private InvoiceData(DateTime invoiceDate)
         {
             InvoiceDate = invoiceDate;
         }
