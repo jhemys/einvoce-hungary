@@ -18,7 +18,7 @@ namespace eInvoice.Hungary.Application.IntegrationEvents.EventHandling
             _logger = logger;
         }
 
-        public async Task Handle(IntegrationEvent @event)
+        public async Task Handle(InvoiceAcceptedEvent @event)
         {
             using (LogContext.PushProperty("IntegrationEventContext", $"{@event.Id}-Hungary"))
             {
@@ -26,7 +26,7 @@ namespace eInvoice.Hungary.Application.IntegrationEvents.EventHandling
 
                 var inovice = Invoice.Create("Test RabbitMQ " + System.Guid.NewGuid());
 
-                await _invoiceRepository.Add(inovice);
+                await _invoiceRepository.AddAsync(inovice);
                 await _invoiceRepository.UnitOfWork.SaveEntitiesAsync();
             }
         }

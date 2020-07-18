@@ -1,5 +1,5 @@
-﻿using eInvoice.Hungary.Application.IntegrationEvents;
-using System;
+﻿using System;
+using System.Text.Json;
 
 namespace eInvoice.Hungary.Application.IntegrationEvents
 {
@@ -9,6 +9,12 @@ namespace eInvoice.Hungary.Application.IntegrationEvents
         {
             Id = Guid.NewGuid();
             CreationDate = DateTime.UtcNow;
+        }
+
+        public IntegrationEvent(Guid id, DateTime createDate)
+        {
+            Id = id;
+            CreationDate = createDate;
         }
 
         public Guid Id { get; private set; }

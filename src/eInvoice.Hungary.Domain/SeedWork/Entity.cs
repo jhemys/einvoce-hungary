@@ -9,6 +9,11 @@ namespace eInvoice.Hungary.Domain.SeedWork
         int? _requestedHashCode;
         int _Id;
 
+        public Entity() { }
+
+        protected Entity(int id)
+            => Id = id;
+
         public virtual int Id
         {
             get

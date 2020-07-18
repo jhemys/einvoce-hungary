@@ -13,6 +13,7 @@ using eInvoice.Hungary.Application.Invoices.Queries.GetInvoice;
 using eInvoice.Hungary.Application.Invoices.Commands.AddInvoice;
 using eInvoice.Hungary.Api.Models;
 using eInvoice.Hungary.Application.Invoices.Commands;
+using eInvoice.Hungary.Application.Invoices.Commands.DeleteInvoice;
 
 namespace eInvoice.Hungary.Api.Controllers
 {
@@ -77,14 +78,14 @@ namespace eInvoice.Hungary.Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!InvoiceExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                //if (!InvoiceExists(id))
+                //{
+                //    return NotFound();
+                //}
+                //else
+                //{
+                //    throw;
+                //}
             }
 
             return NoContent();
@@ -110,24 +111,17 @@ namespace eInvoice.Hungary.Api.Controllers
         }
 
         // DELETE: api/Invoices/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Invoice>> DeleteInvoice(int id)
-        {
-            var invoice = await _context.Invoices.FindAsync(id);
-            if (invoice == null)
-            {
-                return NotFound();
-            }
+        //[HttpDelete("{id}")]
+        //public async Task<ActionResult<Invoice>> DeleteInvoice(int id)
+        //{
+        //    var deleteInvoiceCommand = new DeleteInvoiceCommand(id);
 
-            _context.Invoices.Remove(invoice);
-            await _context.SaveChangesAsync();
+        //    var commandResult = await _mediator.Send(deleteInvoiceCommand);
 
-            return invoice;
-        }
+        //    if (!commandResult.IsSuccess)
+        //        return BadRequest(commandResult.Message);
 
-        private bool InvoiceExists(int id)
-        {
-            return _context.Invoices.Any(e => e.Id == id);
-        }
+        //    return Ok(commandResult.Message);
+        //}
     }
 }

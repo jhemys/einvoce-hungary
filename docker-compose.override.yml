@@ -8,6 +8,8 @@ services:
       - EventBusConnection=host.docker.internal
       - EventBusUserName=user
       - EventBusPassword=123456
+      - MongoDatabaseName=eInvoice
+      - MongoConnection=mongodb://tcp:host.docker.internal:27017
     ports:
       - "80"
       - "443"
@@ -29,12 +31,31 @@ services:
     ports:
       - "5434:1433"
     volumes:
-      - ${APPDATA}/Docker:/root/mssql:ro
+      - C:/Docker/sql/data:/var/opt/mssql/data
     networks:
       mynetwork:
         aliases:
           - db.einvoce.hungary
-  
+
+  mongo-express:
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: user
+      ME_CONFIG_BASICAUTH_PASSWORD: user
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+
+  mongo:
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+
   rabbitmq:
     environment:
       - RABBITMQ_DEFAULT_USER=user
@@ -42,7 +63,17 @@ services:
     ports:
       - "15672:15672"  # Important: In a production environment your should remove the external port
       - "5672:5672"    # Important: In a production environment your should remove the external port
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:15672"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+   mongodata:
 
 networks:
-  mynetwork:
-    driver: bridge
+    mynetwork:
+      driver: bridge
+    mongo-compose-network:
+      driver: bridge

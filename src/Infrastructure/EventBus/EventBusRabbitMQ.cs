@@ -3,6 +3,7 @@ using eInvoice.Hungary.Application.IntegrationEvents;
 using eInvoice.Hungary.Infrastructure.EventBus.Abstractions;
 using eInvoice.Hungary.Infrastructure.Extensions;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Polly;
 using Polly.Retry;
 using RabbitMQ.Client;
@@ -87,7 +88,7 @@ namespace eInvoice.Hungary.Infrastructure.EventBus
 
                 channel.ExchangeDeclare(exchange: BROKER_NAME, type: "direct");
 
-                var message = System.Text.Json.JsonSerializer.Serialize(@event);
+                var message = JsonConvert.SerializeObject(@event);
                 var body = Encoding.UTF8.GetBytes(message);
 
                 policy.Execute(() =>
@@ -123,7 +124,7 @@ namespace eInvoice.Hungary.Infrastructure.EventBus
         private void DoInternalSubscription(string eventName)
         {
             var containsKey = _subsManager.HasSubscriptionsForEvent(eventName);
-            if (containsKey)
+            if (!containsKey)
             {
                 if (!_connection.IsConnected)
                 {

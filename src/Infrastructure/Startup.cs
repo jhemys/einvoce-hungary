@@ -16,6 +16,9 @@ using RabbitMQ.Client;
 using Microsoft.Extensions.Logging;
 using eInvoice.Hungary.Application.IntegrationEvents;
 using eInvoice.Hungary.Application.Invoices.Queries;
+using eInvoice.Hungary.Infrastructure.NoSQL;
+using Microsoft.Extensions.Options;
+using eInvoice.Hungary.Infrastructure.NoSQL.Abstractions;
 
 namespace eInvoice.Hungary.Infrastructure
 {
@@ -41,6 +44,14 @@ namespace eInvoice.Hungary.Infrastructure
                                          sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
                                          sqlOptions.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
                                      });
+            });
+
+        public static IServiceCollection AddMongoDbConnection(this IServiceCollection services, IConfiguration configuration)
+            => services.AddSingleton<INoSqlConnectionSettings>(options =>
+            {
+                var logger = options.GetRequiredService<ILogger<MongoDbConnectionSettings>>();
+
+                return new MongoDbConnectionSettings(configuration["MongoConnection"], configuration["MongoDatabaseName"], logger);
             });
 
         public static IServiceCollection AddIntegrationService(this IServiceCollection services, IConfiguration configuration)
@@ -88,18 +99,18 @@ namespace eInvoice.Hungary.Infrastructure
                 var iLifetimeScope = sp.GetRequiredService<ILifetimeScope>();
                 var logger = sp.GetRequiredService<ILogger<EventBusRabbitMQ>>();
                 var eventBusSubscriptionManager = sp.GetRequiredService<IEventBusSubscriptionManager>();
-                
+
                 var retryCount = 5;
                 if (!string.IsNullOrEmpty(configuration["EventBusRetryCount"]))
                 {
                     retryCount = int.Parse(configuration["EventBusRetryCount"]);
                 }
 
-                return new EventBusRabbitMQ(rabbitMQPersistedConnection, 
-                                            logger, 
-                                            iLifetimeScope, 
-                                            eventBusSubscriptionManager, 
-                                            subscriptionClientName, 
+                return new EventBusRabbitMQ(rabbitMQPersistedConnection,
+                                            logger,
+                                            iLifetimeScope,
+                                            eventBusSubscriptionManager,
+                                            subscriptionClientName,
                                             retryCount);
             });
 

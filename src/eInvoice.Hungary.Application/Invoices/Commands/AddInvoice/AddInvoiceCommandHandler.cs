@@ -18,7 +18,7 @@ namespace eInvoice.Hungary.Application.Invoices.Commands.AddInvoice
 
             try
             {
-                await _invoiceRepository.Add(invoice);
+                await _invoiceRepository.AddAsync(invoice);
                 await _invoiceRepository.UnitOfWork.SaveEntitiesAsync();
             }
             catch (Exception ex)
@@ -26,7 +26,7 @@ namespace eInvoice.Hungary.Application.Invoices.Commands.AddInvoice
                 return CommandResult.Fail(ex.ToString());
             }
 
-            return CommandResult.Ok($"Analysis has been created successuful: [ {invoice.Id} ]");
+            return CommandResult.Ok($"Invoice has been created successuful: [ {invoice.Id} ]");
         }
     }
 }

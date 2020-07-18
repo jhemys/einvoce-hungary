@@ -1,4 +1,6 @@
 networks:
+  mongo-compose-network:
+    driver: bridge
   mynetwork:
     driver: bridge
 services:
@@ -6,12 +8,18 @@ services:
     build:
       context: D:\Projects\Microservices\einvoce-hungary
       dockerfile: src/eInvoice.Hungary.Api/Dockerfile
+    depends_on:
+    - mongo
+    - rabbitmq
+    - sql.data
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: https://+:443;http://+:80
       EventBusConnection: host.docker.internal
       EventBusPassword: '123456'
       EventBusUserName: user
+      MongoConnection: mongodb://tcp:host.docker.internal:27017
+      MongoDatabaseName: eInvoice
     image: einvoicehungaryapi
     links:
     - sql.data
@@ -25,10 +33,46 @@ services:
     volumes:
     - C:\Users\jhemy\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
     - C:\Users\jhemy\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  mongo:
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_ROOT_USERNAME: admin
+    image: mongo
+    networks:
+      mongo-compose-network: {}
+    ports:
+    - published: 27017
+      target: 27017
+    volumes:
+    - mongodata:/data/db:rw
+  mongo-express:
+    environment:
+      ME_CONFIG_BASICAUTH_PASSWORD: user
+      ME_CONFIG_BASICAUTH_USERNAME: user
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_PORT: 27017
+    image: mongo-express
+    links:
+    - mongo
+    networks:
+      mongo-compose-network: {}
+    ports:
+    - published: 8081
+      target: 8081
   rabbitmq:
     environment:
       RABBITMQ_DEFAULT_PASS: '123456'
       RABBITMQ_DEFAULT_USER: user
+    healthcheck:
+      interval: 30s
+      retries: 5
+      test:
+      - CMD
+      - curl
+      - -f
+      - http://localhost:15672
+      timeout: 10s
     image: rabbitmq:3.7.23-management-alpine
     ports:
     - published: 5672
@@ -49,5 +93,7 @@ services:
     - published: 5434
       target: 1433
     volumes:
-    - C:\Users\jhemy\AppData\Roaming\Docker:/root/mssql:ro
+    - C:\Docker\sql\data:/var/opt/mssql/data:rw
 version: '3.4'
+volumes:
+  mongodata: {}

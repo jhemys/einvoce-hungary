@@ -4,6 +4,7 @@
     {
         public string InvoiceNumber { get; set; }
 
+        public InvoiceAcceptedEvent() { }
         public InvoiceAcceptedEvent(string invoiceNumber) => InvoiceNumber = invoiceNumber;
     }
 }
