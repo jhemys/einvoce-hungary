@@ -1,4 +1,4 @@
-﻿using eInvoice.Hungary.Domain.AggregatesModel.InvoiceAggregate;
+﻿using eInvoice.Hungary.Domain.AggregatesModel.InvoiceDataAggregate;
 using eInvoice.Hungary.Infrastructure.NoSQL.Abstractions;
 
 namespace eInvoice.Hungary.Infrastructure.WriteModel.Repositories

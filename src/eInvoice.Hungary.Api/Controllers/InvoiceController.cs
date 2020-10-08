@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using eInvoice.Hungary.Infrastructure.WriteModel.Context;
-using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
+using eInvoice.Hungary.Domain.AggregatesModel.InvoiceAggregate;
 using eInvoice.Hungary.Application.Invoices.Queries.GetInvoices;
 using MediatR;
 using eInvoice.Hungary.Application.IntegrationEvents;
@@ -14,22 +13,30 @@ using eInvoice.Hungary.Application.Invoices.Commands.AddInvoice;
 using eInvoice.Hungary.Api.Models;
 using eInvoice.Hungary.Application.Invoices.Commands;
 using eInvoice.Hungary.Application.Invoices.Commands.DeleteInvoice;
+using AutoMapper;
+using eInvoice.Hungary.Domain.AggregatesModel.InvoiceDataAggregate;
+using System;
+using Firebase.Storage;
+using System.IO;
+using System.Text;
 
 namespace eInvoice.Hungary.Api.Controllers
 {
-    [Route("api/hu/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
-    public class InvoicesController : ControllerBase
+    public class InvoiceController : ControllerBase
     {
         private readonly IMediator _mediator;
         private readonly SqlContext _context;
         private readonly IEventBus _eventBus;
+        private readonly IMapper _mapper;
 
-        public InvoicesController(SqlContext context, IMediator mediator, IEventBus eventBus)
+        public InvoiceController(SqlContext context, IMediator mediator, IEventBus eventBus, IMapper mapper)
         {
             _context = context;
             _mediator = mediator;
             _eventBus = eventBus;
+            _mapper = mapper;
         }
 
         // GET: api/Invoices
@@ -95,19 +102,34 @@ namespace eInvoice.Hungary.Api.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<CommandResult>> PostInvoice(InvoiceModel invoice)
+        public ActionResult<CommandResult> PostInvoice(InvoiceModel invoice)
         {
-            var invoiceCommand = new AddInvoiceCommand(invoice.InvoiceNumber, invoice.InvoiceDate);
+            try
+            {
+                var invoiceDataEntity = _mapper.Map<InvoiceData>(invoice.InvoiceData);
+                var @event = new InvoiceReceivedEvent(invoice.InvoiceNumber, invoice.InvoiceDate, invoice.CompanyCode, invoice.ReferenceId, invoiceDataEntity);
+                _eventBus.Publish(@event);
 
-            var commandResult = await _mediator.Send(invoiceCommand);
+                return Ok("Invoice Received");
+            }
+            catch (Exception ex)
+            {
 
-            if (!commandResult.IsSuccess)
-                return BadRequest(commandResult.Message);
+                return BadRequest(ex.Message);
+            }
+        }
 
-            var @event = new InvoiceAcceptedEvent(invoice.InvoiceNumber);
-            _eventBus.Publish(@event);
+        [Route("/file")]
+        [HttpPost]
+        public async Task<ActionResult<CommandResult>> PostFileAsync()
+        {
+            
+            var storage = new FirebaseStorage("einvoice-hungary.appspot.com");
 
-            return Ok(commandResult.Message);
+            var stream = new MemoryStream(Encoding.UTF8.GetBytes(Guid.NewGuid().ToString()));
+            var url = await storage.Child("test").PutAsync(stream);
+
+            return Ok(url);
         }
 
         // DELETE: api/Invoices/5

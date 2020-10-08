@@ -8,4 +8,8 @@
     <PackageReference Include="ServiceStack.Core" Version="5.9.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Communication\TransmissionServices\" />
+  </ItemGroup>
+
 </Project>

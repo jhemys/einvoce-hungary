@@ -13,11 +13,17 @@
     <Compile Remove="Migrations\20200718163652_Invoice_Removing_Guid.Designer.cs" />
     <Compile Remove="Migrations\20200718163804_Removing_Guid.cs" />
     <Compile Remove="Migrations\20200718163804_Removing_Guid.Designer.cs" />
+    <Compile Remove="Migrations\20200721001727_InvoiceHistory.cs" />
+    <Compile Remove="Migrations\20200721001727_InvoiceHistory.Designer.cs" />
+    <Compile Remove="Migrations\20200812192712_InvoiceDataReference.cs" />
+    <Compile Remove="Migrations\20200812192712_InvoiceDataReference.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="5.0.0" />
     <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="FirebaseAdmin" Version="1.15.0" />
+    <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />

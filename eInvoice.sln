@@ -20,7 +20,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eInvoice.Hungary.AntiCorruption", "src\eInvoice.Hungary.AntiCorruption\eInvoice.Hungary.AntiCorruption.csproj", "{2FE4CF32-7654-425A-BF3D-037383151A86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eInvoice.Hungary.AntiCorruption", "src\eInvoice.Hungary.AntiCorruption\eInvoice.Hungary.AntiCorruption.csproj", "{2FE4CF32-7654-425A-BF3D-037383151A86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eInvoice.Gateway", "src\eInvoice.Gateway\eInvoice.Gateway.csproj", "{B1BE4FD1-C331-4DBE-AC58-EB8895228969}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,10 @@ Global
 		{2FE4CF32-7654-425A-BF3D-037383151A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FE4CF32-7654-425A-BF3D-037383151A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FE4CF32-7654-425A-BF3D-037383151A86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1BE4FD1-C331-4DBE-AC58-EB8895228969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1BE4FD1-C331-4DBE-AC58-EB8895228969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1BE4FD1-C331-4DBE-AC58-EB8895228969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1BE4FD1-C331-4DBE-AC58-EB8895228969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{42BA3E26-A484-4038-AF4C-E60B372D63CB} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
 		{6E220C1A-47BA-41AE-B30E-E4434E1818D3} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
 		{2FE4CF32-7654-425A-BF3D-037383151A86} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
+		{B1BE4FD1-C331-4DBE-AC58-EB8895228969} = {02CD2945-B552-4FCB-9957-7939D758B3D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B8DD720-FD27-4987-B9F0-2BB4BBEBA103}

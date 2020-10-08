@@ -2,7 +2,7 @@
 
 namespace eInvoice.Hungary.Domain.AggregatesModel.InvoiceAggregate
 {
-    public interface IInvoiceDataRepository : IRepository<InvoiceData>
+    public interface IInvoiceDataReferenceRepository : IRepository<InvoiceDataReference>
     {
     }
 }

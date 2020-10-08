@@ -12,6 +12,7 @@ using RabbitMQ.Client.Exceptions;
 using System;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace eInvoice.Hungary.Infrastructure.EventBus
@@ -30,7 +31,7 @@ namespace eInvoice.Hungary.Infrastructure.EventBus
         private IModel _consumerChannel;
         private string _queueName;
 
-        public EventBusRabbitMQ(IRabbitMQConnection persistedConnection, ILogger<EventBusRabbitMQ> logger, 
+        public EventBusRabbitMQ(IRabbitMQConnection persistedConnection, ILogger<EventBusRabbitMQ> logger,
             ILifetimeScope autofac, IEventBusSubscriptionManager subsManager, string queueName = null, int retryCount = 5)
         {
             _connection = persistedConnection;
@@ -252,7 +253,9 @@ namespace eInvoice.Hungary.Infrastructure.EventBus
                             if (handler == null) continue;
 
                             var eventType = _subsManager.GetEventTypeByName(eventName);
-                            var integrationEvent = System.Text.Json.JsonSerializer.Deserialize(message, eventType);
+                            //var jsonSerializerOptions = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+                            //var integrationEvent = System.Text.Json.JsonSerializer.Deserialize(message, eventType, jsonSerializerOptions);
+                            var integrationEvent = JsonConvert.DeserializeObject(message, eventType);
                             var concreteType = typeof(IIntegrationEventHandler<>).MakeGenericType(eventType);
 
                             await Task.Yield();

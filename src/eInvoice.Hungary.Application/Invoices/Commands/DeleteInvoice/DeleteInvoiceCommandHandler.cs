@@ -23,7 +23,7 @@ namespace eInvoice.Hungary.Application.Invoices.Commands.DeleteInvoice
 
         public async Task<CommandResult> Handle(DeleteInvoiceCommand request, CancellationToken cancellationToken)
         {
-            var existingInvoice = await _invoiceQuery.GetInvoiceAsync(request.InvoiceId);
+            var existingInvoice = await _invoiceQuery.GetInvoice(request.InvoiceId);
 
             if (existingInvoice.Id <= 0)
                 return CommandResult.Fail("The informed Id does not exist");

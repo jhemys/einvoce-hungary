@@ -1,4 +1,4 @@
-﻿using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
+﻿using eInvoice.Hungary.Domain.AggregatesModel.InvoiceAggregate;
 
 namespace eInvoice.Hungary.Application.Invoices.Queries.GetInvoice
 {

@@ -19,12 +19,15 @@ using eInvoice.Hungary.Application.Invoices.Queries;
 using eInvoice.Hungary.Infrastructure.NoSQL.Abstractions;
 using eInvoice.Hungary.Domain.SeedWork;
 using eInvoice.Hungary.Infrastructure.NoSQL.Context;
+using eInvoice.Hungary.Domain.AggregatesModel.InvoiceDataAggregate;
+using eInvoice.Hungary.Application.Storage;
+using eInvoice.Hungary.Infrastructure.Storage.Firebase;
 
 namespace eInvoice.Hungary.Infrastructure
 {
     public static class Startup
     {
-        public static IApplicationBuilder UseAnalysisInfrastructure(IApplicationBuilder app) => app;
+        public static IApplicationBuilder UseEInvoiceInfrastructure(IApplicationBuilder app) => app;
 
         public static IServiceCollection AddInvoiceInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
@@ -50,7 +53,6 @@ namespace eInvoice.Hungary.Infrastructure
         {
             services.AddScoped<IMongoContext, MongoContext>();
             services.AddScoped<IUnitOfWork, UnitOfWorkNoSql>();
-            services.AddScoped<IInvoiceDataRepository, InvoiceDataRepository>();
 
             return services;
         }
@@ -86,6 +88,10 @@ namespace eInvoice.Hungary.Infrastructure
                 return new RabbitMQConnection(factory, logger, retryCount);
             });
 
+            services.AddSingleton<IStorage>(storage =>
+            {
+                return new FirebaseCloudStorage(configuration["FirebaseStorageBucket"]);
+            });
 
             return services;
         }
@@ -128,8 +134,9 @@ namespace eInvoice.Hungary.Infrastructure
 
         private static void RegisterRepositoryServices(IServiceCollection services)
         {
-            services
-                .AddTransient<IInvoiceRepository, InvoiceRepository>();
+            services.AddTransient<IInvoiceRepository, InvoiceRepository>();
+            services.AddScoped<IInvoiceDataReferenceRepository, InvoiceDataReferenceRepository>();
+            services.AddScoped<IInvoiceDataRepository, InvoiceDataRepository>();
         }
 
         private static IServiceCollection RegisterSqlServices(IServiceCollection services, IConfiguration configuration) =>

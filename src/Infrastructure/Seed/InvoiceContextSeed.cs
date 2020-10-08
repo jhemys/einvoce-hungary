@@ -6,7 +6,7 @@ using Polly;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
+using eInvoice.Hungary.Domain.AggregatesModel.InvoiceAggregate;
 using eInvoice.Hungary.Infrastructure.WriteModel.Context;
 
 namespace eInvoice.Hungary.Infrastructure.Seed
@@ -22,7 +22,7 @@ namespace eInvoice.Hungary.Infrastructure.Seed
                 if (!context.Invoices.Any())
                 {
 
-                    context.Invoices.AddRange(Invoice.Create("Test"), Invoice.Create("Test 2"));
+                    context.Invoices.AddRange(Invoice.Create("Test", DateTime.UtcNow, "123", "1"), Invoice.Create("Test 2", DateTime.UtcNow, "321", "123"));
 
                     await context.SaveChangesAsync();
                 }

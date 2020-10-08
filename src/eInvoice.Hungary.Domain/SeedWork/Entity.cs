@@ -2,7 +2,7 @@
 
 namespace eInvoice.Hungary.Domain.SeedWork
 {
-    public abstract class Entity<TIdentity>
+    public abstract class Entity<TIdentity> : IEntity
     {
         int? _requestedHashCode;
         TIdentity _Id;

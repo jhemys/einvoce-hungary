@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace eInvoice.Hungary.Infrastructure.WriteModel.Repositories
 {
-    public abstract class BaseMongoRepository<TEntity> : IRepository<TEntity> where TEntity : IAggregateRoot
+    public abstract class BaseMongoRepository<TEntity> : IReadRepository<TEntity>, IRepository<TEntity> where TEntity : Entity<Guid>
     {
         protected readonly IMongoContext Context;
         protected IMongoCollection<TEntity> DbSet;

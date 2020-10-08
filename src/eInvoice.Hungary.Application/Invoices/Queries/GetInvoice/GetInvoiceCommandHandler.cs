@@ -13,7 +13,7 @@ namespace eInvoice.Hungary.Application.Invoices.Queries.GetInvoice
 
         public async Task<InvoiceResult> Handle(GetInvoiceQuery request, CancellationToken cancellationToken)
         {
-            var invoice = await _invoiceQuery.GetInvoiceAsync(request.InvoiceId);
+            var invoice = await _invoiceQuery.GetInvoice(request.InvoiceId);
 
             InvoiceResult invoiceResult = null;
 

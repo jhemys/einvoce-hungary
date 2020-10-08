@@ -1,5 +1,5 @@
 ﻿using eInvoice.Hungary.Application.Invoices.Queries.GetInvoice;
-using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
+using eInvoice.Hungary.Domain.AggregatesModel.InvoiceAggregate;
 using System.Collections.Generic;
 
 namespace eInvoice.Hungary.Application.Invoices.Queries.GetInvoices

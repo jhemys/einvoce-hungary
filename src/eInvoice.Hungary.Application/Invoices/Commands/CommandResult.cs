@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using System.Collections.Generic;
 
 namespace eInvoice.Hungary.Application.Invoices.Commands
 {
@@ -11,7 +10,7 @@ namespace eInvoice.Hungary.Application.Invoices.Commands
         private CommandResult(bool isSuccess, string message)
         {
             IsSuccess = isSuccess;
-            Message = !string.IsNullOrEmpty(message) ? message : "Ne message provided.";
+            Message = !string.IsNullOrEmpty(message) ? message : "No message provided.";
         }
 
         public static CommandResult Ok() => new CommandResult(true, string.Empty);

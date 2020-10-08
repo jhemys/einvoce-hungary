@@ -1,6 +1,12 @@
 version: '3.4'
 
 services:
+  einvoice.gateway:
+    image: ${DOCKER_REGISTRY-}einvoicegateway
+    build:
+      context: .
+      dockerfile: src/eInvoice.Gateway/Dockerfile
+
   einvoice.hungary.api:
     image: ${DOCKER_REGISTRY-}einvoicehungaryapi
     build:

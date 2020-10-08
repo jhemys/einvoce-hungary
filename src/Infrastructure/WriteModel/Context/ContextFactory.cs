@@ -15,7 +15,7 @@ namespace eInvoice.Hungary.Infrastructure.WriteModel.Context
         {
             Configuration = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json")
+            .AddJsonFile("appsettings.Development.json")
             .Build();
             Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             Console.WriteLine(Configuration.GetSection("ConnectionString").Value);
@@ -30,7 +30,7 @@ namespace eInvoice.Hungary.Infrastructure.WriteModel.Context
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json")
+            .AddJsonFile("appsettings.Development.json")
             .Build();
             //optionsBuilder.UseSqlServer(configuration.GetConnectionString("ConnectionString"));
 

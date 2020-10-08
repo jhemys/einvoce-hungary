@@ -1,17 +1,19 @@
 using System;
-using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using eInvoice.Hungary.Infrastructure;
-using MediatR;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using eInvoice.Hungary.Application.IntegrationEvents;
 using eInvoice.Hungary.Application.IntegrationEvents.Events;
 using eInvoice.Hungary.Application.IntegrationEvents.EventHandling;
+using AutoMapper;
+using eInvoice.Hungary.Application;
+using MediatR;
+using System.Reflection;
 
 namespace eInvoice.Hungary.Api
 {
@@ -40,10 +42,15 @@ namespace eInvoice.Hungary.Api
             services.AddEventBus(Configuration);
 
             services.AddTransient<InvoiceAcceptedEventHandler>();
+            services.AddTransient<InvoiceReceivedEventHandler>();
+            services.AddTransient<CallbackEventHandler>();
+
 
             Assembly[] applicationAssembly = { AppDomain.CurrentDomain.Load("eInvoice.Hungary.Application") };
 
             services.AddMediatR(applicationAssembly);
+
+            services.AddAutoMapper(typeof(Startup));
 
             var container = new ContainerBuilder();
             container.Populate(services);
@@ -83,6 +90,8 @@ namespace eInvoice.Hungary.Api
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
             eventBus.Subscribe<InvoiceAcceptedEvent, InvoiceAcceptedEventHandler>();
+            eventBus.Subscribe<InvoiceReceivedEvent, InvoiceReceivedEventHandler>();
+            eventBus.Subscribe<InvoiceAcceptedEvent, CallbackEventHandler>();
         }
     }
 }

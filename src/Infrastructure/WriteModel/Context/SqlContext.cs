@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using eInvoice.Hungary.Infrastructure.EntityConfigurations;
-using eInvoice.Hungary.Domain.Model.AggregatesModel.InvoiceAggregate;
+using eInvoice.Hungary.Domain.AggregatesModel.InvoiceAggregate;
 using eInvoice.Hungary.Domain.SeedWork;
 using System.Threading.Tasks;
 
